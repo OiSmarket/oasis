@@ -1,0 +1,24 @@
+Перезапусти проект:
+mvn spring-boot:run
+
+Запусти с полным логом:
+mvn spring-boot:run -e
+или
+mvn spring-boot:run -X
+
+Остановка приложение.
+Очистка и пересборка:
+mvn clean
+mvn install
+mvn spring-boot:run
+
+
+
+Получи JWT-токен, авторизовавшись:
+
+Invoke-WebRequest -Uri http://localhost:8080/users/login -Method POST -Headers @{"Content-Type" = "application/json"} -Body '{"email":"test@example.com", "password":"123456"}'
+
+Попробуй получить список пользователей с токеном:
+
+$token = "ТВОЙ_JWT_ТОКЕН"
+Invoke-WebRequest -Uri http://localhost:8080/users/all -Method GET -Headers @{"Authorization" = "Bearer $token"}
